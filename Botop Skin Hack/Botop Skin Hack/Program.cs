@@ -31,7 +31,6 @@ namespace Botop_Skin_Hack
         }
         static void Game_Loaded(EventArgs arg)
         {
-
             Skinhackbuddy = MainMenu.AddMenu("Botop Skin Hack", "shsaeed");
             Skinhackbuddy.AddGroupLabel("Botop Skin Hack  Version 0.3");
             Skinhackbuddy.AddSeparator();
@@ -41,11 +40,9 @@ namespace Botop_Skin_Hack
             Ally = Skinhackbuddy.AddSubMenu("Ally Champions" , "allysub");
             foreach (var hero in HeroManager.AllHeroes)
             {
-                sliderr.CurrentValue = 0;
                 if (!hero.IsMe)
                 {
 
-               
                 All_Players.Add(hero);
                 var her = hero;
 
@@ -55,7 +52,6 @@ namespace Botop_Skin_Hack
                  sliderr.OnValueChange += delegate(ValueBase<int> obj, ValueBase<int>.ValueChangeArgs argg)
                  {
                      her.SetSkin(her.ChampionName, argg.NewValue);
-                  //   Chat.Print(her.Name + " " + her.ChampionName + argg.NewValue);
                  };
                 }
                 else
@@ -64,8 +60,6 @@ namespace Botop_Skin_Hack
                     sliderr.OnValueChange += delegate(ValueBase<int> obj, ValueBase<int>.ValueChangeArgs argg)
                     {
                         her.SetSkin(her.ChampionName, argg.NewValue);
-                    //    Chat.Print(her.Name + " " + her.ChampionName + argg.NewValue);
-
                     };
                 }
 
